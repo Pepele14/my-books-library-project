@@ -1,6 +1,19 @@
 <%- include('header.ejs'); -%>
 
+
+
+
+
+
+
 <div class="box">
+  
+    <script>
+      function disableButton() {
+          document.getElementById("myLibraryButton").disabled = true; //Disabling button once its clicked
+      }
+    </script>
+
 
     <div class="addBook"> 
       <form class="formAdd" action="/add" method="post"></form>
@@ -9,15 +22,23 @@
       </form>
     </div>
 
+
     <div class="myLibrary"> 
-      <%= let books%>
-      <form class="formLibrary" action="/myLibrary" method="get"></form>
-        <input type="text" name="newItem" placeholder="New Item" autocomplete="off" autofocus="true" />
-        <button class="myLibraryButton" type="submit" name="list" >My Library</button>
+      <form class="formLibrary" action="/myLibrary" method="get">
+        <button id= "myLibraryButton", class="myLibraryButton" type="submit" name="list" onclick="disableButton()">My Library</button>    
+          <% if (listBooks.length > 0) { %>
+          <ul>
+            <% for (let i = 0; i < listBooks.length; i++) { %>
+              <li><%= listBooks[i].title %> by <%= listBooks[i].author %></li>
+            <% } %>
+          </ul>
+         <% } %>
+       
       </form>
     </div>
+    
 
-</div>
+
       
 </body>
 <%- include('footer.ejs'); -%>
