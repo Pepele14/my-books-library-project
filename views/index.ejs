@@ -2,10 +2,6 @@
 
 
 
-
-
-
-
 <div class="box">
   
     <script>
@@ -16,24 +12,42 @@
 
 
     <div class="addBook"> 
-      <form class="formAdd" action="/add" method="post"></form>
-        <!-- <input type="text" name="newItem" placeholder="New Item" autocomplete="off" autofocus="true" /> -->
-        <button class="addButton" type="submit" name="list" >Add Book</button>
+      <form class="formAdd" action="/add" method="post">
+        <% if (addButtonClicked) { %>
+        <input type="text" name="title" placeholder="Book Title" autocomplete="off" autofocus="true" class="hidden" /><br>
+        <input type="text" name="author" placeholder="Author" autocomplete="off" autofocus="true" class="hidden" /><br>
+        <label for="status"></label>
+        <select name="completed" class="hidden">
+          <option value="true">True</option>
+          <option value="false">False</option>
+        </select><br>
+        <input type="text" name="type" placeholder="Genre" autocomplete="off" autofocus="true" class="hidden" /><br>
+        <label for="status"></label>
+        <select name="rating" class="hidden">
+          <option value="Bad">1</option>
+          <option value="Not that good">2</option>
+          <option value="Ok">3</option>
+          <option value="Very Good">4</option>
+          <option value="Excellent">5</option>
+        </select><br>
+        <input type="text" name="recency" placeholder="Recency" autocomplete="off" autofocus="true" class="hidden" /><br>
+        <% } %>
+        <button class="addButton" type="button" name="list" onclick="addBook()">Add Book</button>
       </form>
     </div>
 
 
     <div class="myLibrary"> 
       <form class="formLibrary" action="/myLibrary" method="get">
-        <button id= "myLibraryButton", class="myLibraryButton" type="submit" name="list" onclick="disableButton()">My Library</button>    
-          <% if (listBooks.length > 0) { %>
+        <button id= "myLibraryButton", class="myLibraryButton" type="submit" name="list">My Library</button>    
+        <% if (myLibraryButtonClicked) { %>
           <ul>
-            <% for (let i = 0; i < listBooks.length; i++) { %>
-              <li><%= listBooks[i].title %> by <%= listBooks[i].author %></li>
+            <% for (let book of listBooks) { %>
+              <li><%= book.title %> by <%= book.author %></li>
             <% } %>
+        <% } %>
           </ul>
-         <% } %>
-       
+         
       </form>
     </div>
     
