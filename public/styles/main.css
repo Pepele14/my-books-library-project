@@ -1,5 +1,5 @@
 html {
-  background: linear-gradient(300deg, rgb(46, 45, 48), #071074, #0d5554);
+  background: linear-gradient(300deg, rgb(46, 45, 48), #41444B, #DFD8C8);
   background-size: 180% 180%;
   animation: gradient-animation 18s ease infinite;
 }
@@ -18,7 +18,7 @@ html {
 
 
 .container-feature{
-  background: linear-gradient(300deg, #17006b, #00a066, #42c804);
+  background: linear-gradient(300deg, #41444B, #52575D, #DFD8C8, #CABFAB);
   background-size: 180% 180%;
   animation: gradient-animation2 18s ease infinite;
 }
@@ -90,4 +90,44 @@ footer {
   display: block;
   opacity: 1;
   height: auto;
+ 
+
 }
+
+
+  /* Styling for form display*/
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .column {
+    flex: 1;
+  }
+
+
+  #benjamin-button {
+    width: 100%; /* Occupies the entire width of the row */
+    background-color: #216303;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    border: none; /* Remove the border */
+    border-radius: 5px;
+    color: white;
+  }
+
+  #benjamin-button:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    background-color: rgba(54, 245, 7, 0.7); /* Semi-transparent blue background on hover */
+  }
+
+  #title-input, #author-input, #recency-input, #type-input, #status-input, #rating-input  {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    border: none; /* Remove the border */
+    border-radius: 3px;
+    background-color: rgb(213, 224, 233);
+  }
+
+
+
+
+

@@ -27,8 +27,6 @@ app.get("/", (req, res) => {
     listBooks: listBooks,
     myLibraryButtonClicked: myLibraryButtonClicked,
     addButtonClicked: addButtonClicked,
-
-
   });
 });
 
@@ -41,6 +39,7 @@ app.get("/myLibrary", async (req, res) => {
       res.render("index.ejs", {
         listBooks: fullBookList,
         myLibraryButtonClicked: myLibraryButtonClicked,
+        addButtonClicked: addButtonClicked,
       });
     
   }} catch (err) {
@@ -72,7 +71,7 @@ app.post("/add", async (req, res) => {
 
       try {
         if(!addButtonClicked){
-        const addBook = await addNewBook();
+        await addNewBook(title, author, completed, type, rating, recency);
         addButtonClicked = true;
 
         res.redirect("/");
@@ -83,7 +82,6 @@ app.post("/add", async (req, res) => {
 
 async function  addNewBook(){
   try {
-    addBook();
     const addNewBook = await db.query(
       "INSERT INTO books (id, title, author, completed, type, rating, recency) VALUES ($1, $2, $3, $4, $5, $6, $7)",
       [title, author, completed, type, rating, recency]
@@ -101,12 +99,3 @@ app.listen(port, () => {
   });
   
 
-
-  function addBook() {
-    const form = document.querySelector('.formAdd');
-  
-    // Toggle the 'visible' class on each input element
-    form.querySelectorAll('input, select').forEach(input => {
-      input.classList.toggle('visible');
-    });
-  }
