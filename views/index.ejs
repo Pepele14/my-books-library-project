@@ -4,17 +4,17 @@
 
 <div class="box">
   
-    <script>
+    <!-- <script>
       function disableButton() {
           document.getElementById("myLibraryButton").disabled = true; //Disabling button once its clicked
       }
-    </script>
+    </script> -->
 
 
     <div class="addBook"> 
       <form class="formAdd" action="/add" method="post">
         <button class="addButton" type="submit" name="list" onclick="addBook()">Add Book</button>
-        <% if (addButtonClicked) { %>
+       
         <div class="row">
 
           <div class="column">
@@ -42,12 +42,9 @@
             </select><br>
           </div>
         </div>
-          <!-- <div class="benjamin-button-div"> -->
-            <!-- <button id="benjamin-button" type="submit" onclick="addBook()" class="hidden" >Submit</button><br> -->
-          <!-- </div> -->
-          <button id= "benjamin-button" class="hidden" type="submit" action="/add" method="post">Submit</button>
-
-        <% } %>
+        <form class="submitAdd" action="/add" method="post">
+          <button id= "benjamin-button" class="hidden" type="submit">Submit</button>
+        </form>
       </form>
     </div>
 
@@ -68,7 +65,7 @@
     
     <script>
       function addBook() {
-        const hiddenInputs = document.querySelectorAll('.formAdd .hidden');
+        const hiddenInputs = document.querySelectorAll('.formAdd .hidden ');
         hiddenInputs.forEach(input => {
           input.classList.toggle('visible');
         });

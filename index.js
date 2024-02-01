@@ -16,7 +16,8 @@ db.connect()
 
 let listBooks  = [];
 let myLibraryButtonClicked = false;
-let addButtonClicked = false;
+let benjaminButtonClicked = false;
+let addButton = false;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -26,7 +27,8 @@ app.get("/", (req, res) => {
   res.render("index.ejs", {
     listBooks: listBooks,
     myLibraryButtonClicked: myLibraryButtonClicked,
-    addButtonClicked: addButtonClicked,
+    benjaminButtonClicked: benjaminButtonClicked,
+    addButton: addButton,
   });
 });
 
@@ -39,7 +41,9 @@ app.get("/myLibrary", async (req, res) => {
       res.render("index.ejs", {
         listBooks: fullBookList,
         myLibraryButtonClicked: myLibraryButtonClicked,
-        addButtonClicked: addButtonClicked,
+        benjaminButtonClicked: benjaminButtonClicked,
+        addButton: addButton,
+
       });
     
   }} catch (err) {
@@ -70,19 +74,22 @@ app.post("/add", async (req, res) => {
   const recency = req.body["recency"];
 
       try {
-        if(!addButtonClicked){
-        await addNewBook(title, author, completed, type, rating, recency);
-        addButtonClicked = true;
-
-        res.redirect("/");
+          if(!benjaminButtonClicked){
+            await addNewBook(title, author, completed, type, rating, recency);
+            benjaminButtonClicked = true;
+            
+            console.log("Book added to the database " + listBooks)
+            res.redirect("/");
+          
       }} catch (err) {
         console.log(err);
+        console.log("Book not added to DB")
       }
 });
 
-async function  addNewBook(){
+async function addNewBook(){
   try {
-    const addNewBook = await db.query(
+    await db.query(
       "INSERT INTO books (id, title, author, completed, type, rating, recency) VALUES ($1, $2, $3, $4, $5, $6, $7)",
       [title, author, completed, type, rating, recency]
     );
