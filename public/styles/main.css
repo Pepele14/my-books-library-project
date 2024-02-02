@@ -75,7 +75,7 @@ footer {
 .addButton:hover,
 .myLibraryButton:hover {
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-  background-color: rgba(164, 205, 248, 0.7); /* Semi-transparent blue background on hover */
+  background-color: rgba(43, 117, 253, 0.863); /* Semi-transparent blue background on hover */
 }
 
 .hidden {

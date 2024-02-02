@@ -13,7 +13,6 @@ db.connect()
       console.error("Error connecting to the database:", err);
     });
 
-
 let listBooks  = [];
 let myLibraryButtonClicked = false;
 let benjaminButtonClicked = false;
@@ -72,20 +71,21 @@ app.post("/add", async (req, res) => {
   const type = req.body["type"];
   const rating = req.body["rating"];
   const recency = req.body["recency"];
-
-      try {
-          if(!benjaminButtonClicked){
+  
+      try{
+          if(!benjaminButtonClicked)
+          {
             await addNewBook(title, author, completed, type, rating, recency);
-            benjaminButtonClicked = true;
-            
-            console.log("Book added to the database " + listBooks)
-            res.redirect("/");
-          
-      }} catch (err) {
-        console.log(err);
-        console.log("Book not added to DB")
-      }
-});
+            benjaminButtonClicked = true;     
+            console.log("Book added to the database " + listBooks);
+          } else {
+            console.log("Book not added to DB");
+          }
+          res.redirect("/");
+        }catch{
+          console.log(err);
+      } 
+    });
 
 async function addNewBook(){
   try {
