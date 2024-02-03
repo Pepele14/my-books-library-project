@@ -56,46 +56,50 @@ footer {
   color: white; /* Set the text color of the footer */
 }
 
-.addButton, .myLibraryButton{
-  max-width: 100%;
-  width: 100%;
-  margin: 10px 0; /* Adjust the top and bottom margin */
-  border-radius: 5px;
-  padding: 20px;
-  box-sizing: border-box;
-  border: none; /* Remove the border */
-  box-shadow: 8px 14px 16px rgba(0, 0, 0, 0.1); /* Add shadow */
-  transition: box-shadow 0.3s ease; /* Add transition for a smoother effect on hover or focus */
-  color: white;
-  background-color: #0A1D56 ;
+
+/* Main buttons (Add Book & My Library) */
+
+  .addButton, .myLibraryButton{
+    max-width: 100%;
+    width: 100%;
+    margin: 10px 0; /* Adjust the top and bottom margin */
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: none; /* Remove the border */
+    box-shadow: 8px 14px 16px rgba(0, 0, 0, 0.1); /* Add shadow */
+    transition: box-shadow 0.3s ease; /* Add transition for a smoother effect on hover or focus */
+    color: white;
+    background-color: #0A1D56 ;
+    
+
+  }
+
+  .addButton:hover,
+  .myLibraryButton:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    background-color: rgba(43, 117, 253, 0.863); /* Semi-transparent blue background on hover */
+  }
+
+  .hidden {
+    display: none;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s, height 0.5s;
+  }
+
+  .visible {
+    display: block;
+    opacity: 1;
+    height: auto;
   
 
-}
-
-.addButton:hover,
-.myLibraryButton:hover {
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-  background-color: rgba(43, 117, 253, 0.863); /* Semi-transparent blue background on hover */
-}
-
-.hidden {
-  display: none;
-  opacity: 0;
-  height: 0;
-  overflow: hidden;
-  transition: opacity 0.5s, height 0.5s;
-}
-
-.visible {
-  display: block;
-  opacity: 1;
-  height: auto;
- 
-
-}
+  }
 
 
-  /* Styling for form display*/
+/* Styling for Add Book form display*/
+
   .row {
     display: flex;
     justify-content: space-between;
@@ -128,6 +132,30 @@ footer {
   }
 
 
+/* Styling for myLibrary display*/
+
+  #close-my-library-button{
+    width: 100%; /* Occupies the entire width of the row */
+    background-color: #630303;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    border: none; /* Remove the border */
+    border-radius: 5px;
+    color: white;
+  }
+
+  #close-my-library-button:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    background-color: rgba(231, 4, 4, 0.7); /* Semi-transparent blue background on hover */
+  }
 
 
+/* MyLibrary BookList Background box */
 
+#mylibrary-bg-box{
+  width: 100%; /* Occupies the entire width of the row */
+  background-color: #8a8a8a;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  border: none; /* Remove the border */
+  border-radius: 5px;
+  color: white;
+}

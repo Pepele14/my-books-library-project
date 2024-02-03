@@ -31,6 +31,16 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get ("/add", (req, res) => { 
+  res.render("index.ejs", {
+    listBooks: listBooks,
+    myLibraryButtonClicked: myLibraryButtonClicked,
+    benjaminButtonClicked: benjaminButtonClicked,
+    addButton: addButton,
+  });
+});
+
+
 app.get("/myLibrary", async (req, res) => {  
   try {
     if (!myLibraryButtonClicked) {
@@ -55,7 +65,7 @@ async function getBooksList() {
     const allBooks = await db.query("SELECT * FROM books");
     listBooks  = allBooks.rows;
       console.log("Query executed");
-      console.log(listBooks);
+
    return listBooks;
 } catch (err) {
   console.log(err);
@@ -67,7 +77,7 @@ async function getBooksList() {
 app.post("/add", async (req, res) => {
   const title = req.body["title"];
   const author = req.body["author"];
-  const completed = req.body["completed"];
+  const completed = req.body.completed;
   const type = req.body["type"];
   const rating = req.body["rating"];
   const recency = req.body["recency"];
@@ -75,22 +85,23 @@ app.post("/add", async (req, res) => {
       try{
           if(!benjaminButtonClicked)
           {
-            await addNewBook(title, author, completed, type, rating, recency);
+            await addNewBook( title, author, completed, type, rating, recency);
             benjaminButtonClicked = true;     
             console.log("Book added to the database " + listBooks);
+            res.send("Book added Successfully");
           } else {
             console.log("Book not added to DB");
           }
-          res.redirect("/");
+            res.redirect("/");
         }catch{
-          console.log(err);
+            console.log(err);
       } 
     });
 
-async function addNewBook(){
+async function addNewBook( title, author, completed, type, rating, recency){
   try {
     await db.query(
-      "INSERT INTO books (id, title, author, completed, type, rating, recency) VALUES ($1, $2, $3, $4, $5, $6, $7)",
+      "INSERT INTO books (title, author, completed, type, rating, recency) VALUES ($1, $2, $3, $4, $5, $6)",
       [title, author, completed, type, rating, recency]
     );
     console.log("Book added successfully")

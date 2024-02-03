@@ -3,18 +3,11 @@
 
 
 <div class="box">
-  
-    <!-- <script>
-      function disableButton() {
-          document.getElementById("myLibraryButton").disabled = true; //Disabling button once its clicked
-      }
-    </script> -->
-
 
     <div class="addBook"> 
      
-      <form class="formAdd" action="/" method="get">
-        <button class="addButton" type="submit" name="list" onclick="addBook()">Add Book</button>
+      <form class="formAdd" action="/add" method="post">
+        <button class="addButton" type="button" name="list" onclick="addBook()">Add Book</button>
        
         <div class="row">
 
@@ -22,7 +15,7 @@
             <input id= "title-input" type="text" name="title" placeholder="Book Title" autocomplete="off" autofocus="true" class="hidden"/><br>
             <input id= "author-input" type="text" name="author" placeholder="Author" autocomplete="off" autofocus="true" class="hidden" /><br>
             <input id= "recency-input" type="text" name="recency" placeholder="Recency" autocomplete="off" autofocus="true" class="hidden"/><br>
-         </div>
+          </div>
 
           <div class="column">
             <input id= "type-input" type="text" name="type" placeholder="Genre" autocomplete="off" autofocus="true" class="hidden" /><br>
@@ -30,10 +23,9 @@
               <select id= "status-input" name="completed" class="hidden">
                 <option value="true">Completed</option>
                 <option value="false">Not Completed</option>
-              </select><br>
-            
+              </select><br>           
             <label for="status"></label>
-            <select id= "rating-input" name="rating" class="hidden">
+            <select id= "rating-input" name="rating" class="hidden"> 
               <option value="Bad">1 (Bad)</option>
               <option value="Not that good">2 (Not good)</option>
               <option value="Ok">3 (Just OK)</option>
@@ -44,27 +36,39 @@
         </div>
         
         <div class="submitAdd" >
-          <form class="formAdd" action="/add" method="post" onsubmit="return onSubmitForm()">
+          
+        <form class="formSubmit" action="/add" method="post">
           <button id= "benjamin-button" class="hidden" type="submit">Submit</button>
+        </form>
         </div>
-      </form>
+        
       </form>
     </div>
 
 
     <div class="myLibrary"> 
       <form class="formLibrary" action="/myLibrary" method="get">
-        <button id= "myLibraryButton", class="myLibraryButton" type="submit" name="list">My Library</button>    
-        <!-- <% if (myLibraryButtonClicked) { %> -->
-          <ul>
-            <% for (let book of listBooks) { %>
-              <li><%= book.title %> by <%= book.author %></li>
-            <% } %>
-        <!-- <% } %> -->
-          </ul>
-         
+        <button id= "myLibraryButton" class="myLibraryButton" type="submit" name="list" onclick="myLibrary()">My Library</button>    
+
+        <div class="row">
+          <div class="column">
+            <button id= "close-my-library-button" class="hidden" type="button" name="close-button">Close Library</button>
+
+            <div id= "mylibrary-bg-box" class="hidden">
+              <ul>
+              <!-- <form class="form-close-library" action="/add" method="post"> -->
+                <% for (let book of listBooks) { %>
+                  <li><%= book.title %> by <%= book.author %></li>
+                <% } %>
+              <!-- </form> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
       </form>
     </div>
+ 
     
     <script>
       function addBook() {
@@ -74,14 +78,12 @@
         });
       }
 
-      function onSubmitForm() {
-    if (!benjaminButtonClicked) {
-      // Prevent default form submission
-      event.preventDefault();
-      // Call your custom function
-      addBook();
-    }
-  }
+      function myLibrary() {
+        const hiddenInputs = document.querySelectorAll('.formLibrary .hidden ');
+        hiddenInputs.forEach(input => {
+          input.classList.toggle('visible');
+        });
+      }
     </script>
 
       
