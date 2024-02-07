@@ -52,7 +52,6 @@ app.get("/myLibrary", async (req, res) => {
         myLibraryButtonClicked: myLibraryButtonClicked,
         benjaminButtonClicked: benjaminButtonClicked,
         addButton: addButton,
-
       });
     
   }} catch (err) {
@@ -88,11 +87,11 @@ app.post("/add", async (req, res) => {
             await addNewBook( title, author, completed, type, rating, recency);
             benjaminButtonClicked = true;     
             console.log("Book added to the database " + listBooks);
-            res.send("Book added Successfully");
+            res.redirect("/");
           } else {
             console.log("Book not added to DB");
           }
-            res.redirect("/");
+      
         }catch{
             console.log(err);
       } 
@@ -110,6 +109,11 @@ async function addNewBook( title, author, completed, type, rating, recency){
       console.log("Query not executed");
   }
 }
+
+
+app.get("/library", (req, res) => {
+  res.json(listBooks); // Assuming listBooks is your array of books
+});
 
 
 app.listen(port, () => {

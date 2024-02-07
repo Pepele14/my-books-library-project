@@ -40,6 +40,9 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  font-family: "Courier New";
+  color: rgb(221, 221, 221);
+
 }
 
 .box {
@@ -47,6 +50,8 @@ body {
   margin: 50px auto;
   border-radius: 5px;
   padding: 20px; /* Add padding for content inside the box */
+  color: rgb(221, 221, 221);
+
 }
 
 footer {
@@ -54,6 +59,7 @@ footer {
   text-align: center;
   padding: 10px;
   color: white; /* Set the text color of the footer */
+  font-size: small;
 }
 
 
@@ -70,15 +76,16 @@ footer {
     box-shadow: 8px 14px 16px rgba(0, 0, 0, 0.1); /* Add shadow */
     transition: box-shadow 0.3s ease; /* Add transition for a smoother effect on hover or focus */
     color: white;
-    background-color: #0A1D56 ;
-    
+    background-color: #141414 ;
+    font-family: "Courier New";
+    font-size: medium;
 
   }
 
   .addButton:hover,
   .myLibraryButton:hover {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    background-color: rgba(43, 117, 253, 0.863); /* Semi-transparent blue background on hover */
+    background-color: rgb(33, 19, 94); /* Semi-transparent background on hover */   
   }
 
   .hidden {
@@ -93,8 +100,13 @@ footer {
     display: block;
     opacity: 1;
     height: auto;
-  
+  }
 
+  .icon{
+     max-width: 100%;
+     height: 12px;
+     width: 12px;
+     margin: 0px 0
   }
 
 
@@ -117,6 +129,7 @@ footer {
     border: none; /* Remove the border */
     border-radius: 5px;
     color: white;
+    font-family: "Courier New";
   }
 
   #benjamin-button:hover {
@@ -128,22 +141,31 @@ footer {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     border: none; /* Remove the border */
     border-radius: 3px;
-    background-color: rgb(213, 224, 233);
+    background-color: rgb(77, 77, 77);
+    font-family: "Courier New";
+    color: rgb(197, 197, 197);
+    
   }
 
 
+  ::placeholder {
+    color: rgb(197, 197, 197);
+}
+
 /* Styling for myLibrary display*/
 
-  #close-my-library-button{
+  #go-to-library-button{
     width: 100%; /* Occupies the entire width of the row */
     background-color: #630303;
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     border: none; /* Remove the border */
     border-radius: 5px;
     color: white;
+    font-family: "Courier New";
+    margin-bottom: 10px;
   }
 
-  #close-my-library-button:hover {
+  #go-to-library-button:hover {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     background-color: rgba(231, 4, 4, 0.7); /* Semi-transparent blue background on hover */
   }
@@ -152,10 +174,32 @@ footer {
 /* MyLibrary BookList Background box */
 
 #mylibrary-bg-box{
+  
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  justify-content: center; /* Center the items horizontally */
+  align-items: center; /* Center the items vertically */
   width: 100%; /* Occupies the entire width of the row */
-  background-color: #8a8a8a;
+  max-width: 100%;
+  background-color: #181818;
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
   border: none; /* Remove the border */
   border-radius: 5px;
   color: white;
+
+}
+
+#mylibrary-books-box{
+  width: 97%; /* Occupies the entire width of the row */
+  max-width: 100%;
+  background-color: #353535;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  border: none; /* Remove the border */
+  border-radius: 5px;
+  color: white;
+  padding: 2px;
+  margin: 3px 0; /* Add space above and below each element */
+  font-family: "Courier New";
+  font-size: small;
+
 }
