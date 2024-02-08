@@ -2,7 +2,7 @@
 
 
 
-<div class="box">
+<div class="box" id="main-content">
 
     <div class="addBook"> 
      
@@ -43,7 +43,6 @@
           <button id= "benjamin-button" class="hidden" type="submit">Submit</button>
         </form>
         </div>
-        
       </form>
     </div>
 
@@ -54,11 +53,14 @@
 
         <div class="row">
           <div class="column">
-            <button id= "go-to-library-button" class="hidden" type="button" name="close-button">Go to Library</button>
+            
+           <!-- Form route to my archive -->
+           <form class="formGoToLibrary" action="/library" method="get">
+             <button id= "go-to-library-button" class="hidden" type="button" name="go-to-library-button" onclick="redirectToLibrary()">Go to Library</button>
+           </form>
+           <!-- Form route to my archive -->
 
             <div id= "mylibrary-bg-box" class="hidden">
-
-             
               <!-- <form class="form-close-library" action="/add" method="post"> -->
                 <% for (let book of listBooks) { %>
                   <div id= "mylibrary-books-box" class="hidden">
@@ -89,7 +91,11 @@
         });
       }
 
-      
+      function redirectToLibrary() {
+        // Redirect to the myLibraryArchive.ejs file
+        window.location.href = "/myLibraryArchive";
+      }
+
     </script>
 
       

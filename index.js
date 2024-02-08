@@ -111,8 +111,18 @@ async function addNewBook( title, author, completed, type, rating, recency){
 }
 
 
-app.get("/library", (req, res) => {
-  res.json(listBooks); // Assuming listBooks is your array of books
+app.get("/myLibraryArchive", async (req, res) => {
+  try 
+  {
+      const fullBookList = await getBooksList();
+      //console.log("rendering next")
+      res.render("myLibraryArchive.ejs", {
+        listBooks: fullBookList,
+      });
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 
