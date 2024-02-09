@@ -1,14 +1,30 @@
-<%- include('header.ejs'); -%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css" />
+    <title>My Books Library</title>
+</head>
 
-<body>
+<body class="body-library-archive">
     <div class="box">
+        <h1 class="archive-h1"> My Library</h1>
 
-    <div class="my-library-archive-bg-box">
+        <div class="row">
+         <div class="column">
 
-
+           <div id ="my-library-archive-bg-box" class = "visible">
+                  <% for (let book of listBooks) { %>
+                <div class="my-library-archive-books-box">
+                  <%= book.title %> by <%= book.author %>
+                </div>
+              <% } %>
+           </div>
+          </div>
+        </div>
     </div>
-
-</div>
 </body>
 
 
