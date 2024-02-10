@@ -9,19 +9,26 @@
 </head>
 
 <body class="body-library-archive">
-    <div class="box">
+    <div class="box-archive">
         <h1 class="archive-h1"> My Library</h1>
 
         <div class="row">
          <div class="column">
 
            <div id ="my-library-archive-bg-box" class = "visible">
+            <% for (let i = 0; i < Math.min(listBooks.length, 1); i++) { %>
                   <% for (let book of listBooks) { %>
-                <div class="my-library-archive-books-box">
+                       <div class="my-library-archive-books-box">
                   <%= book.title %> by <%= book.author %>
-                </div>
+                       </div>
+                <% } %>
               <% } %>
-           </div>
+            </div>
+
+            <% if (listBooks.length > 5) { %>
+              <!-- Render link or button to the second page here -->
+              <a href="/secondPage" class="link-to-second-page">Next Page</a>
+          <% } %>
           </div>
         </div>
     </div>

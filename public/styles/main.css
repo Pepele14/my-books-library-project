@@ -204,26 +204,34 @@ footer {
 
 }
 
+/* Library Archive page */
+
+.box-archive{
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  justify-content: flex-start; /* Align items to the start (top) of the container */
+  height: 100vh; /* Set the height of the container to 100% of the viewport height */
+  padding-top: 20px;
+}
+
 
 #my-library-archive-bg-box{
   display: flex;
-  flex-direction: column; /* Align items vertically */
-  justify-content: center; /* Center the items horizontally */
-  align-items: center; /* Center the items vertically */
-  width: 100%; /* Occupies the entire width of the row */
-  max-width: 100%;
-  background-color: #181818;
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-  border: none; /* Remove the border */
-  border-radius: 5px;
-  color: white;
+  flex-wrap: wrap; /* Allow elements to wrap onto multiple lines */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  width: 100%; /* Adjust width as needed */
+  max-width: 1000px; /* Maximum width */
+  height: auto; /* Auto height to accommodate content */
+  padding: 20px; /* Add padding for spacing */
 }
 
 
 .my-library-archive-books-box{
   width: 97%; /* Occupies the entire width of the row */
   max-width: 100%;
-  background-color: #353535;
+  background-color: #707070;
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
   border: none; /* Remove the border */
   border-radius: 5px;
@@ -235,8 +243,11 @@ footer {
 }
 
 .body-library-archive{
-  margin: 0;
-  min-height: 100vh;
   font-family: "Courier New";
   color: rgb(221, 221, 221);
+}
+
+.archive-h1{
+  margin-top: 20px;
+  text-align: center;
 }
