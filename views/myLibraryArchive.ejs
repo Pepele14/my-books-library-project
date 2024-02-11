@@ -9,29 +9,56 @@
 </head>
 
 <body class="body-library-archive">
+  <a href="/" class="return-button">Return to Home</a>
+
+  <div class="counter-box">
+    <span id="book-counter"><%= listBooks.length  %></span> books read
+  </div>
+
     <div class="box-archive">
+
         <h1 class="archive-h1"> My Library</h1>
 
-        <div class="row">
-         <div class="column">
+        <!-- <div class="row-archive">
+         <div class="column-archive"> -->
 
            <div id ="my-library-archive-bg-box" class = "visible">
-            <% for (let i = 0; i < Math.min(listBooks.length, 1); i++) { %>
-                  <% for (let book of listBooks) { %>
-                       <div class="my-library-archive-books-box">
-                  <%= book.title %> by <%= book.author %>
-                       </div>
+            <input type="text" id="search-input" placeholder="Search..." oninput="searchBooks(this.value)">
+            <ul id="search-suggestions"></ul>
+
+              <% var startIndex = Math.max(0, listBooks.length - 5); %>
+                        <% for (let i = startIndex; i < listBooks.length; i++) { %>
+                            <div class="my-library-archive-books-box">
+                        <%= listBooks[i].title %> by <%= listBooks[i].author %>
+                      </div>
                 <% } %>
-              <% } %>
+              
             </div>
 
             <% if (listBooks.length > 5) { %>
-              <!-- Render link or button to the second page here -->
-              <a href="/secondPage" class="link-to-second-page">Next Page</a>
+                 <button id="show-more-button" type="button" onclick="showMoreBooks()">Show More</button>
           <% } %>
           </div>
         </div>
     </div>
+    <script>
+      // function showMoreBooks() {
+      //                   var nextIndex = Math.max(0, listBooks.length - startIndex);
+      //                   for (let i = nextIndex; i < listBooks.length; i++) { 
+      //                       <div class="my-library-archive-books-box">
+      //                   listBooks[i].title by listBooks[i].author 
+      //                 </div>
+      // }}
+      document.addEventListener("DOMContentLoaded", function() {
+
+      function updateBookCounter() {
+        var counterElement = document.getElementById("book-counter");
+        counterElement.textContent = listBooks.length;
+}
+  updateBookCounter();
+});
+
+    </script>
 </body>
 
 

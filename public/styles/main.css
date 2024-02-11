@@ -211,8 +211,8 @@ footer {
   flex-direction: column;
   align-items: center; /* Center items horizontally */
   justify-content: flex-start; /* Align items to the start (top) of the container */
-  height: 100vh; /* Set the height of the container to 100% of the viewport height */
-  padding-top: 20px;
+  height: 80vh; /* Set the height of the container to 100% of the viewport height */
+  padding-top: 10px;
 }
 
 
@@ -222,15 +222,15 @@ footer {
   justify-content: center; /* Center items horizontally */
   align-items: center; /* Center items vertically */
   width: 100%; /* Adjust width as needed */
-  max-width: 1000px; /* Maximum width */
-  height: auto; /* Auto height to accommodate content */
+  max-width: 600px; /* Maximum width */
+  /* height: auto; Auto height to accommodate content */
   padding: 20px; /* Add padding for spacing */
 }
 
 
 .my-library-archive-books-box{
-  width: 97%; /* Occupies the entire width of the row */
-  max-width: 100%;
+  width: 100%; /* Occupies the entire width of the row */
+  max-width: 70%;
   background-color: #707070;
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
   border: none; /* Remove the border */
@@ -240,6 +240,8 @@ footer {
   margin: 3px 0; /* Add space above and below each element */
   font-family: "Courier New";
   font-size: small;
+  margin-left: 15px;
+
 }
 
 .body-library-archive{
@@ -250,4 +252,79 @@ footer {
 .archive-h1{
   margin-top: 20px;
   text-align: center;
+}
+
+#show-more-button{
+  max-width: 100%;
+  background-color: #242424;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  border: none; /* Remove the border */
+  border-radius: 5px;
+  color: white;
+  padding: 2px;
+  margin: 10px auto; /* Add space above and below each element */
+  font-family: "Courier New";
+  font-size: small;
+  display: block;
+}
+
+#show-more-button:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  background-color: rgba(66, 180, 0, 0.7); /* Semi-transparent blue background on hover */
+}
+
+.return-button {
+  /* max-width: 70%; */
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: #181818; /* Button background color */
+  color: white; /* Button text color */
+  padding: 2px 5px; /* Button padding */
+  border-radius: 5px; /* Button border radius */
+  font-size: small;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+
+}
+
+.counter-box {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #181818; /* Counter box background color */
+  color: #ffffff; /* Counter text color */
+  padding: 2px 5px; /* Counter box padding */
+  border-radius: 5px; /* Counter box border radius */
+  font-size: small; /* Counter text font size */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+
+}
+
+#search-input{
+  width: 100%; 
+  max-width: 70%;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  border: none; 
+  border-radius: 5px;
+  padding: 2px;
+  margin: 3px 0; 
+  font-family: "Courier New";
+  font-size: small;
+  margin-left: 15px;
+
+}
+
+#search-button{
+  /* width: 100%; 
+  max-width: 70%;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  border: none; 
+  border-radius: 5px;
+  padding: 2px;
+  margin: 3px 0; 
+  font-family: "Courier New";
+  font-size: small;
+  margin-left: 15px;
+  margin-bottom: 28px;
+  background-color: rgb(29, 29, 29) */
 }
