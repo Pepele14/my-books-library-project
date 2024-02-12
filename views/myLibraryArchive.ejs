@@ -23,7 +23,7 @@
          <div class="column-archive"> -->
 
            <div id ="my-library-archive-bg-box" class = "visible">
-            <input type="text" id="search-input" placeholder="Search..." oninput="searchBooks(this.value)">
+            <input type="text" id="search-input" placeholder="Search...">
             <ul id="search-suggestions"></ul>
 
               <% var startIndex = Math.max(0, listBooks.length - 5); %>
@@ -36,27 +36,35 @@
             </div>
 
             <% if (listBooks.length > 5) { %>
-                 <button id="show-more-button" type="button" onclick="showMoreBooks()">Show More</button>
-          <% } %>
+                 <button id="show-more-button" type="button" onclick="handleShowMoreClick()">Show More</button>
+                 <% } %> 
+                 
           </div>
         </div>
     </div>
     <script>
-      // function showMoreBooks() {
-      //                   var nextIndex = Math.max(0, listBooks.length - startIndex);
-      //                   for (let i = nextIndex; i < listBooks.length; i++) { 
-      //                       <div class="my-library-archive-books-box">
-      //                   listBooks[i].title by listBooks[i].author 
-      //                 </div>
-      // }}
-      document.addEventListener("DOMContentLoaded", function() {
+      
+      function handleShowMoreClick() {
+    console.log("Show More button clicked");
+    // Add any additional logic you need here
+}
+function handleShowMoreClick() {
+    console.log("Show More button clicked");
 
-      function updateBookCounter() {
+  }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    function updateBookCounter() {
         var counterElement = document.getElementById("book-counter");
+
         counterElement.textContent = listBooks.length;
 }
-  updateBookCounter();
-});
+    updateBookCounter();
+  });
+
+
+
 
     </script>
 </body>

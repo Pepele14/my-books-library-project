@@ -18,6 +18,7 @@ let myLibraryButtonClicked = false;
 let benjaminButtonClicked = false;
 let addButton = false;
 
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
