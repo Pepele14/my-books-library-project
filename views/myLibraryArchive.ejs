@@ -44,14 +44,21 @@
     </div>
     <script>
       
+      
+
       function handleShowMoreClick() {
     console.log("Show More button clicked");
-    // Add any additional logic you need here
-}
-function handleShowMoreClick() {
-    console.log("Show More button clicked");
+    var container = document.getElementById("my-library-archive-bg-box");
+    var startIndex = Math.max(0, listBooks.length - 5);
+    var endIndex = Math.min(startIndex + 5, listBooks.length); 
 
-  }
+    for (let i = startIndex; i < endIndex; i++) {
+        var bookBox = document.createElement("div");
+        bookBox.className = "my-library-archive-books-box";
+        bookBox.textContent = listBooks.title + " by " + listBooks.author;
+        container.appendChild(bookBox);
+    }
+}
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -62,7 +69,6 @@ document.addEventListener("DOMContentLoaded", function() {
 }
     updateBookCounter();
   });
-
 
 
 
