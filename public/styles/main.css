@@ -224,7 +224,7 @@ footer {
   width: 100%; /* Adjust width as needed */
   max-width: 600px; /* Maximum width */
   /* height: auto; Auto height to accommodate content */
-  padding: 20px; /* Add padding for spacing */
+  /* padding: 20px;  */
 }
 
 
@@ -240,7 +240,7 @@ footer {
   margin: 3px 0; /* Add space above and below each element */
   font-family: "Courier New";
   font-size: small;
-  margin-left: 15px;
+  /* margin-left: 15px; */
 
 }
 
@@ -310,8 +310,7 @@ footer {
   margin: 3px 0; 
   font-family: "Courier New";
   font-size: small;
-  margin-left: 15px;
+  margin-left: 40px;
   margin-bottom: 28px;
-
 }
 
