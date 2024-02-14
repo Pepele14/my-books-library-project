@@ -116,7 +116,7 @@ app.get("/myLibraryArchive", async (req, res) => {
   try 
   {
       const fullBookList = await getBooksList();
-      //console.log("rendering next")
+      // console.log(fullBookList);
       res.render("myLibraryArchive.ejs", {
         listBooks: fullBookList,
       });
@@ -125,6 +125,8 @@ app.get("/myLibraryArchive", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+
+
 
 
 app.listen(port, () => {

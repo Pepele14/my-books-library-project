@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/main.css"/>
     <title>My Books Library</title>
 </head>
 
@@ -23,53 +23,45 @@
          <div class="column-archive"> -->
 
            <div id ="my-library-archive-bg-box" class = "visible">
-            <input type="text" id="search-input" placeholder="Search...">
-            <ul id="search-suggestions"></ul>
+                    <input type="text" id="search-input" placeholder="Search...">
+                    <ul id="search-suggestions"></ul>
 
-              <% var startIndex = Math.max(0, listBooks.length - 5); %>
-                        <% for (let i = startIndex; i < listBooks.length; i++) { %>
-                            <div class="my-library-archive-books-box">
-                        <%= listBooks[i].title %> by <%= listBooks[i].author %>
+                     <% listBooks.forEach(function(book, index) { %>
+                      <div class="my-library-archive-books-box <% if (index >= 5) { %>hidden<% } %>">
+                        <%= book.title %> by <%= book.author %>
                       </div>
-                <% } %>
-              
+                      <% }); %>     
             </div>
 
             <% if (listBooks.length > 5) { %>
                  <button id="show-more-button" type="button" onclick="handleShowMoreClick()">Show More</button>
-                 <% } %> 
-                 
+            <% } %> 
+                
           </div>
         </div>
     </div>
-    <script>
-      
-      
+  <script>
 
-      function handleShowMoreClick() {
-    console.log("Show More button clicked");
-    var container = document.getElementById("my-library-archive-bg-box");
-    var startIndex = Math.max(0, listBooks.length - 5);
-    var endIndex = Math.min(startIndex + 5, listBooks.length); 
+      document.addEventListener("DOMContentLoaded", function() {
+          function updateBookCounter() {
+              var counterElement = document.getElementById("book-counter");
 
-    for (let i = startIndex; i < endIndex; i++) {
-        var bookBox = document.createElement("div");
-        bookBox.className = "my-library-archive-books-box";
-        bookBox.textContent = listBooks.title + " by " + listBooks.author;
-        container.appendChild(bookBox);
-    }
-}
+              counterElement.textContent = listBooks.length;
+      }
+          updateBookCounter();
+        });
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    function updateBookCounter() {
-        var counterElement = document.getElementById("book-counter");
+        function handleShowMoreClick() {
+          var hiddenBooks = document.querySelectorAll('.my-library-archive-books-box.hidden');
 
-        counterElement.textContent = listBooks.length;
-}
-    updateBookCounter();
-  });
+            hiddenBooks.forEach(function(book) {
+              book.classList.remove('hidden');
+            });
 
+            var showMoreButton = document.getElementById('show-more-button');
+            showMoreButton.style.display = 'none'; // Hide the button once all books are visible
+  }
 
 
     </script>
