@@ -49,7 +49,7 @@ body {
   max-width: 400px;
   margin: 50px auto;
   border-radius: 5px;
-  padding: 20px; /* Add padding for content inside the box */
+  padding: 20px; 
   color: rgb(221, 221, 221);
 
 }
@@ -58,7 +58,7 @@ footer {
   margin-top: auto;
   text-align: center;
   padding: 10px;
-  color: white; /* Set the text color of the footer */
+  color: white; 
   font-size: small;
 }
 
@@ -68,13 +68,13 @@ footer {
   .addButton, .myLibraryButton{
     max-width: 100%;
     width: 100%;
-    margin: 10px 0; /* Adjust the top and bottom margin */
+    margin: 10px 0; 
     border-radius: 5px;
     padding: 20px;
     box-sizing: border-box;
-    border: none; /* Remove the border */
-    box-shadow: 8px 14px 16px rgba(0, 0, 0, 0.1); /* Add shadow */
-    transition: box-shadow 0.3s ease; /* Add transition for a smoother effect on hover or focus */
+    border: none; 
+    box-shadow: 8px 14px 16px rgba(0, 0, 0, 0.1); 
+    transition: box-shadow 0.3s ease;
     color: white;
     background-color: #141414 ;
     font-family: "Courier New";
@@ -85,7 +85,7 @@ footer {
   .addButton:hover,
   .myLibraryButton:hover {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    background-color: rgb(33, 19, 94); /* Semi-transparent background on hover */   
+    background-color: rgb(33, 19, 94);   
   }
 
   .hidden {
@@ -123,10 +123,10 @@ footer {
 
 
   #benjamin-button {
-    width: 100%; /* Occupies the entire width of the row */
+    width: 100%; 
     background-color: #216303;
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    border: none; /* Remove the border */
+    border: none; 
     border-radius: 5px;
     color: white;
     font-family: "Courier New";
@@ -134,12 +134,12 @@ footer {
 
   #benjamin-button:hover {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    background-color: rgba(54, 245, 7, 0.7); /* Semi-transparent blue background on hover */
+    background-color: rgba(54, 245, 7, 0.7); 
   }
 
   #title-input, #author-input, #recency-input, #type-input, #status-input, #rating-input  {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    border: none; /* Remove the border */
+    border: none; 
     border-radius: 3px;
     background-color: rgb(77, 77, 77);
     font-family: "Courier New";
@@ -155,10 +155,10 @@ footer {
 /* Styling for myLibrary display*/
 
   #go-to-library-button{
-    width: 100%; /* Occupies the entire width of the row */
+    width: 100%; 
     background-color: #630303;
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    border: none; /* Remove the border */
+    border: none; 
     border-radius: 5px;
     color: white;
     font-family: "Courier New";
@@ -167,7 +167,7 @@ footer {
 
   #go-to-library-button:hover {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    background-color: rgba(231, 4, 4, 0.7); /* Semi-transparent blue background on hover */
+    background-color: rgba(231, 4, 4, 0.7); 
   }
 
 
@@ -176,29 +176,29 @@ footer {
 #mylibrary-bg-box{
   
   display: flex;
-  flex-direction: column; /* Align items vertically */
-  justify-content: center; /* Center the items horizontally */
-  align-items: center; /* Center the items vertically */
-  width: 100%; /* Occupies the entire width of the row */
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  width: 100%; 
   max-width: 100%;
   background-color: #181818;
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-  border: none; /* Remove the border */
+  border: none; 
   border-radius: 5px;
   color: white;
 
 }
 
 #mylibrary-books-box{
-  width: 97%; /* Occupies the entire width of the row */
+  width: 97%; 
   max-width: 100%;
   background-color: #353535;
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-  border: none; /* Remove the border */
+  border: none; 
   border-radius: 5px;
   color: white;
   padding: 2px;
-  margin: 3px 0; /* Add space above and below each element */
+  margin: 3px 0; 
   font-family: "Courier New";
   font-size: small;
 
@@ -211,33 +211,38 @@ footer {
   flex-direction: column;
   align-items: center; /* Center items horizontally */
   justify-content: flex-start; /* Align items to the start (top) of the container */
-  height: 80vh; /* Set the height of the container to 100% of the viewport height */
-  padding-top: 10px;
+  height: 80vh; 
+  
 }
 
 
 #my-library-archive-bg-box{
   display: flex;
-  flex-wrap: wrap; /* Allow elements to wrap onto multiple lines */
-  justify-content: center; /* Center items horizontally */
-  align-items: center; /* Center items vertically */
-  width: 100%; /* Adjust width as needed */
-  max-width: 600px; /* Maximum width */
-  /* height: auto; Auto height to accommodate content */
+  flex-wrap: wrap; 
+  justify-content: center; 
+  align-items: center; 
+  width: 100%; 
+  max-width: 600px; 
+  /* height: auto; 
   /* padding: 20px;  */
+}
+
+.my-library-archive-books-box:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  background-color: rgba(66, 180, 0, 0.7); 
 }
 
 
 .my-library-archive-books-box{
-  width: 100%; /* Occupies the entire width of the row */
+  width: 100%; 
   max-width: 70%;
   background-color: #707070;
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-  border: none; /* Remove the border */
+  border: none; 
   border-radius: 5px;
   color: white;
   padding: 2px;
-  margin: 3px 0; /* Add space above and below each element */
+  margin: 3px 0; 
   font-family: "Courier New";
   font-size: small;
   /* margin-left: 15px; */
@@ -258,11 +263,11 @@ footer {
   max-width: 100%;
   background-color: #242424;
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-  border: none; /* Remove the border */
+  border: none; 
   border-radius: 5px;
   color: white;
   padding: 2px;
-  margin: 10px auto; /* Add space above and below each element */
+  margin: 10px auto; 
   font-family: "Courier New";
   font-size: small;
   display: block;
@@ -270,7 +275,7 @@ footer {
 
 #show-more-button:hover {
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-  background-color: rgba(66, 180, 0, 0.7); /* Semi-transparent blue background on hover */
+  background-color: rgba(66, 180, 0, 0.7); 
 }
 
 .return-button {
@@ -278,24 +283,29 @@ footer {
   position: fixed;
   top: 10px;
   left: 10px;
-  background-color: #181818; /* Button background color */
-  color: white; /* Button text color */
-  padding: 2px 5px; /* Button padding */
-  border-radius: 5px; /* Button border radius */
+  background-color: #181818; 
+  color: white; 
+  padding: 2px 5px; 
+  border-radius: 5px;
   font-size: small;
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 
+}
+
+.return-button:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  background-color: rgba(231, 4, 4, 0.7);
 }
 
 .counter-box {
   position: fixed;
   top: 10px;
   right: 10px;
-  background-color: #181818; /* Counter box background color */
-  color: #ffffff; /* Counter text color */
-  padding: 2px 5px; /* Counter box padding */
-  border-radius: 5px; /* Counter box border radius */
-  font-size: small; /* Counter text font size */
+  background-color: #181818; 
+  color: #ffffff; 
+  padding: 2px 5px; 
+  border-radius: 5px; 
+  font-size: small; 
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 
 }
@@ -314,3 +324,11 @@ footer {
   margin-bottom: 28px;
 }
 
+.delete-button{
+  border: none; 
+  border-radius: 5px;
+  font-family: "Courier New";
+  font-size: small;
+  background-color: rgba(231, 4, 4, 0.7);
+  color: #ffffff;
+}

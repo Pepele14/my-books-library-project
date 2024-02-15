@@ -127,7 +127,22 @@ app.get("/myLibraryArchive", async (req, res) => {
 });
 
 
+app.delete("/books/:id", async (req, res) => {
+  try {
+    const bookId = req.params.id;
 
+    await deleteBookById(bookId); 
+
+    res.status(200).send("Book deleted successfully");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+async function deleteBookById(){
+
+}
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);

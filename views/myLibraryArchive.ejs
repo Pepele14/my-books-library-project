@@ -28,6 +28,7 @@
 
                      <% listBooks.forEach(function(book, index) { %>
                       <div class="my-library-archive-books-box <% if (index >= 5) { %>hidden<% } %>">
+                        <button class="delete-button">">Delete</button>
                         <%= book.title %> by <%= book.author %>
                       </div>
                       <% }); %>     
@@ -42,6 +43,7 @@
     </div>
   <script>
 
+// Books counter Event Listener
       document.addEventListener("DOMContentLoaded", function() {
           function updateBookCounter() {
               var counterElement = document.getElementById("book-counter");
@@ -51,7 +53,7 @@
           updateBookCounter();
         });
 
-
+// Onclick function of show-more-button
         function handleShowMoreClick() {
           var hiddenBooks = document.querySelectorAll('.my-library-archive-books-box.hidden');
 
@@ -63,7 +65,24 @@
             showMoreButton.style.display = 'none'; // Hide the button once all books are visible
   }
 
+// Event listener for search bar matching
+  document.addEventListener("DOMContentLoaded", function() {
+    var searchInput = document.getElementById("search-input");
+    var books = document.querySelectorAll(".my-library-archive-books-box");
 
+    searchInput.addEventListener("input", function() {
+      var searchText = searchInput.value.toLowerCase();
+
+      books.forEach(function(book) {
+        var title = book.textContent.toLowerCase();
+        if (title.includes(searchText)) {
+          book.style.display = "block";
+        } else {
+          book.style.display = "none";
+        }
+      });
+    });
+  });
     </script>
 </body>
 
