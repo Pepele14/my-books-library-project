@@ -127,9 +127,9 @@ app.get("/myLibraryArchive", async (req, res) => {
 });
 
 
-app.delete("/books/:id", async (req, res) => {
+app.post("/delete/:id", async (req, res) => {
   try {
-    const bookId = req.params.id;
+    const bookId = req.params.deleteForm;
 
     await deleteBookById(bookId); 
 
@@ -140,8 +140,14 @@ app.delete("/books/:id", async (req, res) => {
   }
 });
 
-async function deleteBookById(){
-
+async function deleteBookById(id){
+  try {
+    await db.query("DELETE FROM books WHERE id = $1", [id]);
+    return; 
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
 }
 
 app.listen(port, () => {

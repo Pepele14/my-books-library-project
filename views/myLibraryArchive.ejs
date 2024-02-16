@@ -27,9 +27,14 @@
                     <ul id="search-suggestions"></ul>
 
                      <% listBooks.forEach(function(book, index) { %>
+                      
                       <div class="my-library-archive-books-box <% if (index >= 5) { %>hidden<% } %>">
-                        <button class="delete-button">">Delete</button>
+                        <form id="deleteForm" action="/delete" method="post">
+                          <input type="hidden" id="deleteItemId" name="deleteItemId" value="<%= book.id %>">
+                          <button class="delete-button" name="deletion" type="submit">Delete</button>
+                        </form>  
                         <%= book.title %> by <%= book.author %>
+   
                       </div>
                       <% }); %>     
             </div>
