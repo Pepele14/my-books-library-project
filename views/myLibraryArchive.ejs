@@ -11,9 +11,14 @@
 <body class="body-library-archive">
   <a href="/" class="return-button">Return to Home</a>
 
-  <div class="counter-box">
+  <div class="counter-box" onmouseover="expandCounterBox()" onmouseout="collapseCounterBox()">
     <span id="book-counter"><%= listBooks.length  %></span> books read
+    <div class="books-per-year">
+    </div>
   </div>
+
+
+ 
 
     <div class="box-archive">
 
@@ -29,11 +34,15 @@
                      <% listBooks.forEach(function(book, index) { %>
                       
                       <div class="my-library-archive-books-box <% if (index >= 5) { %>hidden<% } %>">
-                        <form id="deleteForm" action="/delete" method="post">
-                          <input type="hidden" id="deleteItemId" name="deleteItemId" value="<%= book.id %>">
-                          <button class="delete-button" name="deletion" type="submit">Delete</button>
-                        </form>  
+                        <span class="book-info">
                         <%= book.title %> by <%= book.author %>
+                      </span>
+
+                        <form action="/delete" method="post" class="delete-form">
+                          <input type="hidden" name="deleteItemId" value="<%= book.id %>">
+                          <button class="delete-button" type="submit">Delete</button>
+                        </form>  
+                        
    
                       </div>
                       <% }); %>     
@@ -49,6 +58,47 @@
   <script>
 
 // Books counter Event Listener
+      document.addEventListener("DOMContentLoaded", function() {
+          function updateBookCounter() {
+              var counterElement = document.getElementById("book-counter");
+
+              counterElement.textContent = listBooks.length;
+      }
+          updateBookCounter();
+        });
+
+// Expand counter box
+  function expandCounterBox() {
+  // Calculate books per year and update the content of the books-per-year div
+  const booksPerYear = calculateBooksPerYear();
+  const booksPerYearHTML = Object.entries(booksPerYear).map(([year, count]) => `<div>${year}: ${count}</div>`).join('');
+  document.querySelector('.books-per-year').innerHTML = booksPerYearHTML;
+}
+
+// Calculate books read per year
+function calculateBooksPerYear() {
+  // Initialize an object to store books per year
+  const booksPerYear = {};
+
+  // Loop through the list of books and count books per year
+  listBooks.forEach(book => {
+    const year = book.recency.split('-')[0]; // Extract year from recency field
+    if (!booksPerYear[year]) {
+      booksPerYear[year] = 1;
+    } else {
+      booksPerYear[year]++;
+    }
+  });
+
+  return booksPerYear;
+}
+
+function collapseCounterBox() {
+  // Clear the content of the books-per-year div
+  document.querySelector('.books-per-year').innerHTML = '';
+}
+
+// Books counter Current Year Event Listener
       document.addEventListener("DOMContentLoaded", function() {
           function updateBookCounter() {
               var counterElement = document.getElementById("book-counter");

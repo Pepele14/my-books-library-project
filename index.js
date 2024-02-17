@@ -17,6 +17,7 @@ let listBooks  = [];
 let myLibraryButtonClicked = false;
 let benjaminButtonClicked = false;
 let addButton = false;
+let deleteButtonIsClicked = false;
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -127,28 +128,27 @@ app.get("/myLibraryArchive", async (req, res) => {
 });
 
 
-app.post("/delete/:id", async (req, res) => {
+app.post("/delete", async (req, res) => {
+  const bookId = req.body.deleteItemId; 
   try {
-    const bookId = req.params.deleteForm;
+          await deleteBook(bookId); 
+          console.log("Book deleted");
+          res.redirect("/myLibraryArchive");
 
-    await deleteBookById(bookId); 
-
-    res.status(200).send("Book deleted successfully");
   } catch (err) {
-    console.error(err);
-    res.status(500).send("Internal Server Error");
+      console.log(err);
+      res.status(500).send("Internal Server Error");
   }
 });
 
-async function deleteBookById(id){
+async function deleteBook(bookId){
   try {
-    await db.query("DELETE FROM books WHERE id = $1", [id]);
-    return; 
+    await db.query("DELETE FROM books WHERE id = $1", [bookId]);
   } catch (err) {
     console.log(err);
-    throw err;
   }
 }
+
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
